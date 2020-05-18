@@ -3,31 +3,38 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>    
                 <div class="card-body">
-                    <a href="/blogs/create" class="btn btn-primary">Create a Blog Post</a>
-                    <h3>Your Blog Posts</h3>
+                    <!-- <a href="/blogs/create" class="btn btn-primary">Create a Blog Post</a> -->
+                    <h4>Your Blog Posts</h4>
                     @if(count($blogs) > 0)
-                    <table class="table table-striped">
-                        <tr>
-                            <th>Title</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        @foreach($blogs as $blog)
+                    <table class="table table-bordered">
+                        <thead>
                             <tr>
-                                <th>{{$blog->title}}</th>
-                                <td>
-                                    <a href="/blogs/{{$blog->id}}/edit" class="btn btn-primary">Edit</a>
-                                    <form method="post" action="{{ route('blogs.destroy', $blog->id)}}" class="float-right">
+                                <th scope="col">Title</th>
+                                <th scope="col">Date Created</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        @foreach($blogs as $blog)
+                        <tbody>
+                            <tr>
+                                <td colspan="">{{$blog->title}}
+                                <td colspan="">{{$blog->created_at}}
+                                <td colspan="">{{$blog->status}}
+                                <td colspan="" style="display: flex;">
+                                    <a href="/blogs/{{$blog->id}}/edit" class="btn btn-primary mr-2">Edit</a>
+                                    <form method="post" action="{{ route('blogs.destroy', $blog->id)}}" class="">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </td>
                             </tr>
+                        </tbody>
                         @endforeach
                     </table>
                     @else

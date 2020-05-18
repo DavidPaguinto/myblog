@@ -56,7 +56,7 @@ class BlogsController extends Controller
             'title' => 'required',
             'short_summary' => 'required',
             'content' => 'required',
-            'image_upload' => 'required|image|nullable'
+            'image_upload' => 'image|nullable'
         ]);
         
         // File Upload
@@ -131,7 +131,7 @@ class BlogsController extends Controller
             'title' => 'required',
             'short_summary' => 'required',
             'content' => 'required',
-            'image_upload' => 'required|image|nullable'
+            'image_upload' => 'image|nullable'
         ]);
         
         // File Upload

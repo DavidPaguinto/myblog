@@ -16,10 +16,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
-                @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/blogs') }}">{{ __('Blogs') }}</a>
-                    </li>                            
+                @guest                     
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/about') }}">{{ __('About') }}</a>
                     </li>
